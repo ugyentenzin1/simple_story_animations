@@ -1,4 +1,4 @@
-//declaring Variables
+/*//declaring Variables
 //
 let hero = document.querySelector('#hero');
 let lightning= document.querySelector('#lightning');
@@ -21,11 +21,11 @@ let options = {
 
 function onLightHit() {
     let villainStart = {
-        "transform": "rotate(0deg)",
+        "transform": "scale(1)",
         "opacity": 100
     }
     let villainEnd = {
-        "transform": "rotate(360deg)",
+        "transform": "scale(0)",
         "opacity": 0
     }
 
@@ -37,7 +37,7 @@ function onLightHit() {
 
 
 // run the animation
-// lightning.animate([lightningStart, lightningEnd], options).onfinish = onLightHit;
+lightning.animate([lightningStart, lightningEnd], options).onfinish = onLightHit;
 
 
 //data Visualization
@@ -118,13 +118,13 @@ for(let i = 0; i < (dataset.length - 1); i++) {
         }
         circle.animate([keyFramesFrom, keyFramesTo], animationOptions);
     })
-}
+}*/
 
 //balloon poping game
-const successUrl = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmsyem11YnpkbGk4dWo" +
-    "3ejAwZWl3eWdtcHkyeWx4aXY0ODg3ejM5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/li0dswKqIZNpm/giphy.gif";
+const successUrl = "https://giphy.com/gifs/puma-bolt-usain-puma-running-xT0BKAB7vMb10rfnvG";
 const failUrl = "https://giphy.com/gifs/fail-black-and-white-bob-dylan-li0dswKqIZNpm";
 let numStopped = 0
+const balloonDuration = [10000, 20000, 12000, 24000, 14000, 30000, 15000];
 const balloon = [document.querySelector('#redBalloon'),
     document.querySelector('#yellowBalloon'),
     document.querySelector('#greenBalloon') ,
@@ -134,9 +134,9 @@ const balloon = [document.querySelector('#redBalloon'),
     document.querySelector('#skyBalloon')
 ]
 
-balloon.forEach(balloons => {
+balloon.forEach((balloons, index) => {
    balloons.animation = balloons.animate([{top: "80vh"}, {top: "5vh"}],
-       {duration:(10000), fill: "forwards"})
+       {duration: balloonDuration[index], fill: "forwards"})
 
 
    balloons.animation.onfinish = () => {
